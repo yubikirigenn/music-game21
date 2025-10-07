@@ -302,14 +302,11 @@ const RhythmGame = () => {
       !hitNotesRef.current.has(n.id) &&
       (n.type !== NOTE_TYPES.LONG || !n.holding)
     );
-    
-    if (notesInLane.length === 0) return;
-    
     let closestNote = null;
     let minDiff = Infinity;
     for (const note of notesInLane) {
       const diff = Math.abs(note.time - time);
-      if (diff < minDiff && diff <= 0.15) {
+      if (diff < minDiff && diff <= 0.12) {
         minDiff = diff;
         closestNote = note;
       }
